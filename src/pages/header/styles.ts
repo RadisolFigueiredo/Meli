@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const Logo = styled.div``;
 
-export const BoxSearch = styled.div`
+export const BoxSearch = styled.form`
   margin: 0 20px;
   width: 100%;
   display: flex;

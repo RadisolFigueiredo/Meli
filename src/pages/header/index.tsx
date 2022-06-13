@@ -8,13 +8,14 @@ import iconSearch from '../../assets/images/iconSearch.png';
 import * as S from './styles';
 
 export default function Header({ setItems, items }: any) {
-
   const [search, setSearch] = useState('');
 
-  async function handleProducts() {
-    
+  async function handleSubmit(e: any) {
+    e.preventDefault();
     try {
       const response = await api.get(encodeURI(`search?q=${search}`));
+      console.log('HEADER',items);
+
       setItems(response.data.results);
     } catch (err) {
       setItems([]);
@@ -35,7 +36,7 @@ export default function Header({ setItems, items }: any) {
           </span>
         </Link>
       </S.Logo>
-      <S.BoxSearch>
+      <S.BoxSearch onSubmit={handleSubmit}>
         <S.Input
           type='text'
           name='search'
@@ -44,7 +45,7 @@ export default function Header({ setItems, items }: any) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <S.ButtonSearch onClick={() => handleProducts()}>
+        <S.ButtonSearch type='submit'>
           <img src={iconSearch} alt='search' />
         </S.ButtonSearch>
       </S.BoxSearch>
