@@ -17,7 +17,7 @@ type LocationState = {
     id: string;
   };
 };
-export default function Detail({ search }: any) {
+export default function Detail() {
   const location = useLocation();
 
   const data = useMemo(
@@ -29,7 +29,7 @@ export default function Detail({ search }: any) {
 
   return (
     <>
-      <Header search={search} />
+      <Header />
 
       <S.Container>
         <S.BoxFirstRow>
