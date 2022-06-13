@@ -14,8 +14,6 @@ export default function Header({ setItems, items }: any) {
     e.preventDefault();
     try {
       const response = await api.get(encodeURI(`search?q=${search}`));
-      console.log('HEADER',items);
-
       setItems(response.data.results);
     } catch (err) {
       setItems([]);
